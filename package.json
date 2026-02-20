@@ -1,7 +1,7 @@
 {
-  "name": "rube-chat",
+  "name": "Rubi chat",
   "version": "1.0.0",
-  "description": "Rube Chat - A premium websocket chat",
+  "description": "Rubi Chat - A premium websocket chat",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

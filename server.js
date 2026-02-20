@@ -27,7 +27,7 @@ io.on('connection', (socket) => {
             id: socket.id,
             timestamp: new Date().toLocaleTimeString()
         });
-        
+
         // Send current user list to the new user
         socket.emit('user-list', Array.from(users.values()));
     });
