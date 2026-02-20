@@ -29,8 +29,14 @@ function joinRoom() {
         chatScreen.classList.remove('hidden');
         userDisplay.textContent = `Logged in as: ${username}`;
         messageInput.focus();
+
+        // Request notification permission
+        if ('Notification' in window) {
+            Notification.requestPermission();
+        }
     }
 }
+
 
 // Send Message
 sendBtn.addEventListener('click', sendMessage);
@@ -72,7 +78,16 @@ emojis.forEach(emoji => {
 socket.on('chat-message', (data) => {
     const isMe = data.username === myUsername;
     appendMessage(data, isMe);
+
+    // Show notification if window is not focused
+    if (!isMe && document.hidden && Notification.permission === 'granted') {
+        new Notification(`새 메시지: ${data.username}`, {
+            body: data.message,
+            icon: 'https://upload.wikimedia.org/wikipedia/commons/e/e3/KakaoTalk_logo.svg' // Using Kakao icon for consistency
+        });
+    }
 });
+
 
 socket.on('chat-history', (history) => {
     history.forEach(data => {
@@ -191,18 +206,40 @@ window.addEventListener('load', () => {
             <div class="intro-popup">
                 <div class="intro-header">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/KakaoTalk_logo.svg" alt="Kakao">
-                    <span>알림</span>
+                    <span>New Update</span>
                 </div>
                 <div class="intro-body">
-                    <h3>💡 메시지 삭제 기능 추가</h3>
-                    <p>이제 보낸 메시지를 삭제할 수 있습니다!</p>
-                    <div class="how-to">
-                        <strong>방법:</strong> 삭제하고 싶은 내 메시지를 <strong>꾸욱~</strong> 누르시면 삭제 버튼이 나타납니다.
+                    <h3>루비 챗을 좀 더<br>즐겁게 사용하는 방법 🎁</h3>
+                    
+                    <div class="feature-card">
+                        <div class="card-icon">💬</div>
+                        <div class="card-content">
+                            <h4>메시지 지우기</h4>
+                            <p>실수하셨나요? 내 메시지를 <strong>꾸욱~</strong> 누르면 5분 안에 삭제할 수 있어요.</p>
+                        </div>
                     </div>
-                    <p class="notice">※ 5분 이내의 메시지만 삭제 가능합니다.</p>
+
+                    <div class="feature-card">
+                        <div class="card-icon">🔔</div>
+                        <div class="card-content">
+                            <h4>실시간 알림 받기</h4>
+                            <p>앱처럼 설치하면 친구의 메시지를 놓치지 않고 푸시로 받을 수 있어요!</p>
+                        </div>
+                    </div>
+
+                    <div class="step-guide">
+                        <div class="step-item">
+                            <span class="step-badge">iOS</span>
+                            <p>공유 버튼 > <strong>홈 화면에 추가</strong></p>
+                        </div>
+                        <div class="step-item">
+                            <span class="step-badge">Android</span>
+                            <p>메뉴(⋮) > <strong>홈 화면에 추가</strong></p>
+                        </div>
+                    </div>
                 </div>
                 <div class="intro-footer">
-                    <button id="close-intro">확인</button>
+                    <button id="close-intro">시작하기</button>
                 </div>
             </div>
         `;
@@ -214,4 +251,5 @@ window.addEventListener('load', () => {
         });
     }, 1000);
 });
+
 
