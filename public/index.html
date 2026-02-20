@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rube Chat | Premium WebSocket Room</title>
+    <title>Rubi Chat | Premium WebSocket Room</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,10 +14,10 @@
 <body>
     <!-- Login Screen -->
     <div id="login-screen">
-        <h1>Rube Chat</h1>
-        <p>Enter your universe moniker to join the conversation.</p>
-        <input type="text" id="username-input" placeholder="Your name..." autofocus>
-        <button id="join-btn">Initialize Connection</button>
+        <h1>Rubi</h1>
+        <p>Access the exclusive crystal-clear communication hub.</p>
+        <input type="text" id="username-input" placeholder="Enter your identity..." autofocus>
+        <button id="join-btn">Authorize Entry</button>
     </div>
 
     <!-- Chat Screen -->
@@ -25,7 +25,7 @@
         <header id="chat-header">
             <div class="header-info">
                 <span class="status-dot"></span>
-                <span id="room-name">Interstellar Hub</span>
+                <span id="room-name">Rubi Sanctuary</span>
             </div>
             <div id="user-display" style="font-size: 0.9rem; color: var(--text-muted);"></div>
         </header>
@@ -35,6 +35,14 @@
         </main>
 
         <footer id="chat-input-area">
+            <button id="emoji-btn">😀</button>
+            <div id="emoji-picker" class="hidden">
+                <div class="emoji-list">
+                    <span>😀</span><span>😂</span><span>🤣</span><span>😊</span><span>😍</span><span>😒</span><span>😘</span><span>😁</span>
+                    <span>😉</span><span>🙌</span><span>👍</span><span>👎</span><span>🔥</span><span>✨</span><span>🎉</span><span>❤️</span>
+                    <span>😎</span><span>🤔</span><span>😢</span><span>😡</span><span>😱</span><span>😴</span><span>🤯</span><span>🥳</span>
+                </div>
+            </div>
             <input type="text" id="message-input" placeholder="Type a message..." autocomplete="off">
             <button id="send-btn">Send</button>
         </footer>

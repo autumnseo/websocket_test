@@ -8,6 +8,9 @@ const chatBody = document.getElementById('chat-body');
 const messageInput = document.getElementById('message-input');
 const sendBtn = document.getElementById('send-btn');
 const userDisplay = document.getElementById('user-display');
+const emojiBtn = document.getElementById('emoji-btn');
+const emojiPicker = document.getElementById('emoji-picker');
+const emojis = document.querySelectorAll('.emoji-list span');
 
 let myUsername = '';
 
@@ -42,6 +45,28 @@ function sendMessage() {
         messageInput.value = '';
     }
 }
+
+// Emoji Picker Logic
+emojiBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    emojiPicker.classList.toggle('hidden');
+});
+
+// Close picker when clicking outside
+document.addEventListener('click', (e) => {
+    if (!emojiPicker.contains(e.target) && e.target !== emojiBtn) {
+        emojiPicker.classList.add('hidden');
+    }
+});
+
+// Emoji selection
+emojis.forEach(emoji => {
+    emoji.addEventListener('click', () => {
+        messageInput.value += emoji.textContent;
+        messageInput.focus();
+        emojiPicker.classList.add('hidden');
+    });
+});
 
 // Receive Message
 socket.on('chat-message', (data) => {
