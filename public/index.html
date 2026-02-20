@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rube Chat | Premium WebSocket Room</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Login Screen -->
+    <div id="login-screen">
+        <h1>Rube Chat</h1>
+        <p>Enter your universe moniker to join the conversation.</p>
+        <input type="text" id="username-input" placeholder="Your name..." autofocus>
+        <button id="join-btn">Initialize Connection</button>
+    </div>
+
+    <!-- Chat Screen -->
+    <div id="chat-screen" class="hidden">
+        <header id="chat-header">
+            <div class="header-info">
+                <span class="status-dot"></span>
+                <span id="room-name">Interstellar Hub</span>
+            </div>
+            <div id="user-display" style="font-size: 0.9rem; color: var(--text-muted);"></div>
+        </header>
+
+        <main id="chat-body">
+            <!-- Messages will appear here -->
+        </main>
+
+        <footer id="chat-input-area">
+            <input type="text" id="message-input" placeholder="Type a message..." autocomplete="off">
+            <button id="send-btn">Send</button>
+        </footer>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
