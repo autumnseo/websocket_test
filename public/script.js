@@ -205,9 +205,10 @@ window.addEventListener('load', () => {
         popup.innerHTML = `
             <div class="intro-popup">
                 <div class="intro-header">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/KakaoTalk_logo.svg" alt="Kakao">
-                    <span>New Update</span>
+                    <div class="rubitalk-logo">R</div>
+                    <span>RubiTalk New Update</span>
                 </div>
+
                 <div class="intro-body">
                     <h3>루비 챗을 좀 더<br>즐겁게 사용하는 방법 🎁</h3>
                     

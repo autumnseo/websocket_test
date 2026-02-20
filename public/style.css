@@ -440,20 +440,44 @@ button:active {
     gap: 12px;
 }
 
-.intro-header img {
-    width: 56px;
-    height: 56px;
-    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+.rubitalk-logo {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #e11d48, #9f1239);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    font-weight: 900;
+    box-shadow: 0 10px 20px rgba(225, 29, 72, 0.4);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.rubitalk-logo::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 60%);
+    pointer-events: none;
 }
 
 .intro-header span {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     font-weight: 800;
-    color: #000000;
-    opacity: 0.5;
+    color: #3C1E1E;
+    opacity: 0.7;
+    margin-top: 8px;
     text-transform: uppercase;
     letter-spacing: 0.15em;
 }
+
 
 .intro-body {
     padding: 16px 28px 28px;
