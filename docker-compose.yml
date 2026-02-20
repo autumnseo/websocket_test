@@ -6,4 +6,7 @@ services:
       - "3000:3000"
     environment:
       - PORT=3000
+    volumes:
+      - ./chat.db:/app/chat.db
     restart: always
+
